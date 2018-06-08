@@ -358,7 +358,9 @@ class Zone(object):
             if op["action"] == self.ACTION_ADD:
                 self._add_record(op["record"])
             elif op["action"] == self.ACTION_REMOVE:
-                self._remove_record(op["record"])
+                # We will not remove, this is BAD
+                continue
+                # self._remove_record(op["record"])
             elif op["action"] == self.ACTION_UPDATE:
                 self._update_record(op["record"])
             else:
