@@ -296,11 +296,13 @@ class Zone(object):
                 "record": desired_tuples[key],
             })
 
-        for key in set(existing_tuples).difference(desired_tuples):
-            changes.append({
-                "action": self.ACTION_REMOVE,
-                "record": existing_tuples[key],
-            })
+        # We should only add or update, remove this logic
+
+        #for key in set(existing_tuples).difference(desired_tuples):
+        #    changes.append({
+        #        "action": self.ACTION_REMOVE,
+        #        "record": existing_tuples[key],
+        #    })
 
         for key in set(existing_tuples).intersection(desired_tuples):
             if existing_tuples[key].pure() == desired_tuples[key]:
